@@ -1,0 +1,48 @@
+@import "../../../../styles.scss";
+
+nav {
+  background-color: $main-color;
+
+  .nav-link {
+    padding-top: 13px;
+    cursor: pointer;
+    &:hover {
+       color:grey; 
+    }
+  }
+  .link-category {
+    border: 4px solid $scondary-color;
+    border-radius: 15px;
+    font-weight: bolder;
+    padding-top: 10px !important ;
+    margin-left: 0.55rem;
+    margin-right: 0.55rem;
+    color:grey; 
+  }
+  .search-bar {
+    width: 35%;
+    .search-input {
+      border-radius: 18px;
+      &:focus,
+      &:hover {
+        border-color: $scondary-color;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .cart{
+    cursor: pointer;
+  }
+
+  @media (max-width: 992px) {
+    .nav-link {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .search-bar {
+      width: 99%;
+      margin: auto;
+    }
+  }
+}

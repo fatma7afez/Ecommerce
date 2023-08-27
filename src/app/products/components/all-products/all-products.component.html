@@ -1,0 +1,27 @@
+<section class="all-products my-5">
+  <div class="container">
+    <!-- If we haven't any products list until now -->
+    <div
+      class="row justify-content-center align-items-center loading"
+      *ngIf="isLoading || products.length == 0"
+    >
+      <div class="col-lg-1 col-3" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div class="col-11 text-center m-1" *ngIf="products.length == 0">
+        <h2>we haven't any products list yet</h2>
+      </div>
+    </div>
+
+    <!-- products list -->
+
+    <div class="row" *ngIf="!isLoading && products.length > 0">
+      <div
+        class="col-xl-3 col-md-6 my-md-2"
+        *ngFor="let product of products | search : searchKey"
+      >
+        <app-product [productData]="product" (selectProduct)="addToCart($event)"></app-product>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+@import "../../../../styles.scss";
+
+.card {
+  transform: scale(1);
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .card-image {
+    height: 350px;
+  }
+  .cart{
+
+  }
+  button{
+    border-radius: 15px;
+    width:250px;
+  }
+  .btn-cart {
+    background-color: $scondary-color;
+    color:$main-color;
+  }
+  .btn-buy {
+    background-color: $warning-color;
+  }
+  .icon {
+    cursor: pointer;
+    margin-top: 1.2rem;
+    color: $scondary-color;
+  }
+  .my-6{
+    margin-top: 2.90rem;
+    margin-bottom: 2.45rem;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

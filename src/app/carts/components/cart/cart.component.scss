@@ -1,0 +1,52 @@
+@import "../../../../styles.scss";
+
+.cart {
+  min-height: 60vh;
+  .hder,
+  .items-number {
+    color: $scondary-color;
+  }
+  th,
+  td {
+    padding: 1.5rem;
+  }
+  .input-group {
+    width: 150px;
+  }
+  button {
+    border-radius: 15px;
+    width: 150px;
+  }
+  .plus , .mins{
+    cursor: pointer;
+  }
+  .btn-shop-more {
+    background-color: $scondary-color;
+    color:$main-color;
+  }
+  .btn-buy {
+    background-color: $warning-color;
+    .order-text{
+      padding-top:0.09rem ;
+      padding-bottom:0.09rem ;
+    }
+  }
+  .loading {
+    height: 60vh;
+  }
+  mat-form-field {
+    margin-right: 12px;
+  }
+  mat-spinner{
+    width:1.5rem!important;height: 1.5rem!important;
+    margin-top:0.09rem ;
+    margin-bottom:0.09rem ;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    width: 50px;
+  }
+}

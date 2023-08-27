@@ -1,0 +1,124 @@
+<section class="cart container mx-auto my-5 border shadow rounded p-5">
+  <section>
+    <h2 class="hder">Shopping Cart</h2>
+    <p *ngIf="!isLoading && selectProducts.length > 0">
+      You have
+      <span class="items-number">{{ selectProducts.length }}</span> item in your
+      cart
+    </p>
+  </section>
+  <section
+    class="table-responsive w-100"
+    *ngIf="!isLoading && selectProducts.length > 0"
+  >
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr class="text-center">
+          <th></th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="text-center"
+          *ngFor="let product of selectProducts; let i = index"
+        >
+          <td>
+            <img
+              [src]="product?.item.image"
+              [alt]="product?.item.title"
+              width="60"
+              height="50"
+              class="rounded"
+            />
+          </td>
+          <td>{{ displayTitleOfProduct(product?.item.title) }}</td>
+          <td>
+            <div class="input-group mx-auto">
+              <span
+                class="input-group-text bg-black text-white plus"
+                (click)="onPlusQuantity(i)"
+                >+</span
+              >
+              <input
+                type="number"
+                class="form-control text-center"
+                [(ngModel)]="product.quantity"
+                (change)="onChangeQuantity(i)"
+                min="1"
+              />
+              <span
+                class="input-group-text bg-black text-white d-md-inline mins"
+                (click)="onMinsQuantity(i)"
+                >-</span
+              >
+            </div>
+          </td>
+          <td>{{ getTotalOfDivProduct(i) | currency : "EGP" : "symbol" }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="onDeleteProduct(i)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="text-center">
+          <th></th>
+          <td></td>
+          <td></td>
+          <td>
+            {{ totalOfAllProducts | currency : "EGP" : "symbol" }}
+          </td>
+          <td>
+            <div class="mx-auto">
+              <button
+                type="button"
+                class="btn btn-shop-more mx-1 my-lg-0 my-2"
+                type="button"
+                (click)="onShopMore()"
+              >
+                Shop More
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-buy text-white"
+                (click)="onGetCheckOutData()"
+                type="button"
+              >
+                <div class="order-text" *ngIf="!loadingButton">Check Out</div>
+                <mat-spinner
+                  class="mx-auto text-white"
+                  *ngIf="loadingButton"
+                ></mat-spinner>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <div class="container">
+    <!-- If we haven't any products list until now -->
+    <div
+      class="row justify-content-center align-items-center loading"
+      *ngIf="isLoading || selectProducts.length == 0"
+    >
+      <div class="col-lg-1 col-3" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div class="col-11 text-center m-1" *ngIf="selectProducts.length == 0">
+        <h2 class="fs-2">your cart is empty</h2>
+      </div>
+    </div>
+  </div>
+</section>

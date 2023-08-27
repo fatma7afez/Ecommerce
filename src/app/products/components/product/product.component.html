@@ -1,0 +1,45 @@
+<!-- product -->
+<div class="card p-1 shadow rounded text-decoration-none">
+  <div
+    class="card-container pt-3 text-center"
+    (click)="onNagivateToProductDetails(productData.id)"
+  >
+    <img
+      [src]="productData.image"
+      [alt]="productData.title"
+      class="img-fluid card-image"
+    />
+    <div class="card-body py-3 px-2 text-center">
+      <h2 class="card-text">
+        {{ displayTitleOfProduct(productData.title) }}
+      </h2>
+      <h3 class="card-text">
+        {{ productData.price | currency : "EGP" : "symbol" }}
+      </h3>
+    </div>
+  </div>
+
+  <div class="text-center d-flex justify-content-center">
+    <div class="cart d-flex">
+      <label class="px-1 fs-5 pt-2">Qty:</label>
+      <input type="number" class="form-control" min="1" [(ngModel)]="amount" />
+    </div>
+  </div>
+
+  <div class="mx-auto mt-3" >
+    <button
+      type="button"
+      class="btn btn-cart"
+      (click)="onAdd()"
+      type="button"
+    >
+      Add to Cart
+    </button>
+  </div>
+
+  <div class="mx-auto mt-2 mb-4">
+    <button type="button" class="btn btn-buy" (click)="onGoToBuyNow()" type="button">
+      Buy Now
+    </button>
+  </div>
+</div>
