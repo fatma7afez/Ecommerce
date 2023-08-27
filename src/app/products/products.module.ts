@@ -9,6 +9,7 @@ import { SearchPipe } from './pipe/search.pipe';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -27,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     MatProgressSpinnerModule,
     FormsModule,
+    MatSnackBarModule
   ]
 })
 export class ProductsModule { }

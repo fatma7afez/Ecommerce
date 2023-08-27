@@ -3,6 +3,7 @@ import { ProductsService } from '../../service/products.service';
 import { Product } from '../../model/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { finalize } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-all-products',
@@ -18,7 +19,8 @@ export class AllProductsComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _productsService: ProductsService
+    private _productsService: ProductsService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -86,9 +88,18 @@ export class AllProductsComponent implements OnInit {
       if (!existProduct) {
         this.selectProducts.push(product);
         localStorage.setItem('cart', JSON.stringify(this.selectProducts));
+        this.openSnackBar('This product add' , 'close')
       } else {
-        alert('exist');
+        this.openSnackBar('This product already existed' , 'close')
       }
     }
+  }
+
+
+  // toaster
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 }
