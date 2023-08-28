@@ -20,7 +20,10 @@
         class="col-xl-3 col-md-6 my-md-2"
         *ngFor="let product of products | search : searchKey"
       >
-        <app-product [productData]="product" (selectProduct)="addToCart($event)"></app-product>
+        <app-product
+          [productData]="product"
+          (selectProduct)="addToCart($event)"
+        ></app-product>
       </div>
     </div>
   </div>

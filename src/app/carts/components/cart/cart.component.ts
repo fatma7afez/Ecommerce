@@ -84,7 +84,10 @@ export class CartComponent implements OnInit {
 
   //delete product of carts
   onDeleteProduct(index: number) {
-    this.selectProducts.splice(this.selectProducts[index], 1);
+    console.log(index)
+    console.log(this.selectProducts)
+
+    this.selectProducts.splice(index, 1);
     this.getTotalOfAllProducts();
     this.updatedCart();
   }
@@ -115,7 +118,6 @@ export class CartComponent implements OnInit {
       date: new Date(),
       products: productList,
     };
-    console.log(orderData);
     this.sendCheckOutData(orderData);
   }
 

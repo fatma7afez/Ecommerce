@@ -41,6 +41,8 @@ export class ProductComponent implements OnInit {
   // }
 
   onGoToBuyNow(){
+    this.onAdd()
     this._router.navigate([`/cart`]);
+
   }
 }

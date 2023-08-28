@@ -66,14 +66,15 @@ export class AllProductsComponent implements OnInit {
   getSearchKey() {
     this._productsService.searchKey.subscribe((key: string) => {
       this.searchKey = key;
+      console.log(this.searchKey)
     });
   }
 
-  // stop subscribe on searchKey after go out the page
-  ngOnDestroy(): void {
-    this._productsService.searchKey.next('');
-    this._productsService.searchKey.complete();
-  }
+  // // stop subscribe on searchKey after go out the page
+  // ngOnDestroy(): void {
+  //   this._productsService.searchKey.next('');
+  //   this._productsService.searchKey.complete();
+  // }
 
   // add to cart
   addToCart(product: any) {

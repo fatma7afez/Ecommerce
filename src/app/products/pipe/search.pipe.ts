@@ -6,7 +6,8 @@ import { Product } from '../model/product.model';
 })
 export class SearchPipe implements PipeTransform {
   transform(products: Product[], searchKey: string): Product[] {
-    if (products.length == 0 || searchKey== null) {
+    console.log(searchKey)
+    if (products.length == 0 || searchKey== '') {
       return products;
 
     } else {
@@ -21,8 +22,6 @@ export class SearchPipe implements PipeTransform {
           result.push(product);
         }
       }
-      console.log(result)
-
       return result;
     }
   }

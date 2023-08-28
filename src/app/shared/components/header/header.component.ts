@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
   //  search of products
   onSearchOfProductS(key: any) {
     const searchKey = key.target.value;
+    console.log(searchKey)
     this._productsService.searchKey.next(searchKey);
   }
 }

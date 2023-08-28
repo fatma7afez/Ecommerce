@@ -37,13 +37,13 @@
           >
         </li>
       </ul>
-      <form class="search-bar d-flex" *ngIf="currectUrl !== '/cart'">
+      <form class="search-bar d-flex" *ngIf="currectUrl !== '/cart'  ">
         <input
           class="form-control me-2 search-input"
           type="search"
           placeholder="Search about products ...."
           aria-label="Search"
-          (input)="onSearchOfProductS($event)"
+          (keyup)="onSearchOfProductS($event)"
         />
       </form>
       <ul class="navbar-nav mx-1">
