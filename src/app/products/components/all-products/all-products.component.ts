@@ -66,7 +66,6 @@ export class AllProductsComponent implements OnInit {
   getSearchKey() {
     this._productsService.searchKey.subscribe((key: string) => {
       this.searchKey = key;
-      console.log(this.searchKey)
     });
   }
 

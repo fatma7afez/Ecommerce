@@ -84,9 +84,6 @@ export class CartComponent implements OnInit {
 
   //delete product of carts
   onDeleteProduct(index: number) {
-    console.log(index)
-    console.log(this.selectProducts)
-
     this.selectProducts.splice(index, 1);
     this.getTotalOfAllProducts();
     this.updatedCart();
